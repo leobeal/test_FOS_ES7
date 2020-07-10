@@ -1,0 +1,19 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+fos_elastica:
+    clients:
+        default: { url: '%env(ELASTICSEARCH_URL)%' }
+    indexes:
+        new_2:
+          use_alias: true
+          properties:
+            username: ~
+            firstName: ~
+            lastName: ~
+
+          persistence:
+            driver: orm
+            model: App\Dummy
+            provider:
+              service: 'App\Provider\TestProvider'
+            listener:
+              enabled: false
